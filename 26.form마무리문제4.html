@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <h1>주문하기</h1>
+        <fieldset>
+            <legend>제품 선택</legend>
+            <input type="text" list="datalist">
+              <datalist id = "datalist">
+                  <option value="옵션1">aaa</option>
+                  <option value="옵션2">bbb</option>
+                  <option value="옵션3">ccc</option>
+                  <option value="옵션4">ddd</option>            
+              </datalist>
+              <br><br>
+              <label for="">포장 유무</label><br>
+              <input type="radio">선물포장
+              <input type="radio">일반포장
+              <input type="radio">포장안함
+        </fieldset>
+
+        <fieldset>
+            <legend>배송 정보</legend>
+            <ul>
+                <li>
+                    <label for="">받는분</label>
+                    <input type="text" name="name">
+                </li>
+                <li>
+                    <label for="">연락처</label>
+                    <input type="tel" placeholder="010-0000-0000" name="tel"><br>
+                <li>
+                    <label for="">주소</label>
+                    <textarea name="address" id="" cols="30" rows="5"></textarea>
+                </li>
+                <li>
+                    <label for="">메세지</label>
+                    <textarea name="massage" id="" cols="30" rows="5" size="10"></textarea>
+                </li>
+                <li>
+                    <label for="">배송일 선택</label>
+                    <input type="date">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>결제방법</legend>
+            <input type="radio" name="payment">무통장 결제
+            <select name="" id="">
+                <option value="1">우리은행 000-0000000-000000 홍길동</option>
+            </select>
+            <br>
+            <input type="radio" name="payment">신용카드
+            <input type="button" value="결제하기">
+            <br>
+            <input type="radio" name="payment">현장결제
+        </fieldset>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="주문취소">
+
+    </form>
+    
+</body>
+</html>

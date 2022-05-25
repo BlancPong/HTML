@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원 가입을 환영합니다.</h1>
+    <form>
+        <fieldset>
+            <legend>사용자 정보</legend>
+            <ul>
+                <li>아이디 <input type="text" id="ID"></li>
+                <li>이메일 <input type="email" id="email" ></li>
+                <li>비밀번호 <input type="password" id="Password" ></li>
+                <li>비밀번호 확인 <input type="password" id="Passwordcheck" ></li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>이벤트와 새로운 소식</legend>
+            <input type="radio" name="mailing" value="yes_email"> 메일 수신
+            <input type="radio" name="mailing" value="no_email" checked> 메일 수신 안 함
+            <br><br>
+            <fieldset>
+                <legend>관심사</legend>
+                <input type="checkbox" value="Fation">패션
+                <input type="checkbox" value="Love">연애
+                <input type="checkbox" value="IT">IT
+                <input type="checkbox" value="Live">생활
+                <input type="reset" value="초기화">
+            </fieldset>
+        </fieldset>
+        
+        
+        <input type="submit" value="가입하기">
+        <input type="reset" value="취소">
+        <!-- 
+            submit: 버튼을 클릭하는 행위를 전달하는 type
+            체크박스나 라디오버튼과 다르게 value값이
+            버튼에 달린 텍스트값을 의미한다.
+
+            reset: submit과 동일한 외형을 하고 있지만
+            해당 input이 포함된 form 영역 전체의
+            form값을 초기값으로 초기화시켜준다.
+         -->
+    </form>
+    
+</body>
+</html>
