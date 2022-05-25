@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #margin1{
+            margin: 50px;
+            border: 1px solid black;
+        }
+        #margin2{
+            margin: 30px 50px;
+            border: 1px solid black;
+        }
+        #margin3{
+            margin: 30px 20px 50px;
+            border: 1px solid black;
+        }
+        #margin4{
+            margin: 30px 50px 70px 100px;
+            border: 1px solid black;
+        }
+        #marginBottom{
+            margin-bottom: 50px;
+            border: 1px solid black;
+            /* 
+                마진을 전방향으로 주는게 아니라 
+                한쪽 방향에만 주게 되면
+                중첩되는 마진이 없어지기 때문에
+                마진 계산이 쉬워진다.
+            */
+        }
+        #padding{
+            padding: 50px;
+            border: black 1px solid;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="marginBottom">
+        마진을 한방향으로만 줬을때
+    </div>
+
+    <div id="margin1">
+        마진을 1개만 줬을때
+    </div>
+    
+    <div id="margin2">
+        마진을 2개만 줬을때
+    </div>
+
+    <div id="margin3">
+        마진을 3개만 줬을때
+    </div>
+
+    <div id="margin4">
+        마진을 4개만 줬을때
+    </div>
+    <!-- 
+        마진 영역이 겹칠 경우에는
+        각 마진의 크기를 더하는게 아니라
+        겹친(중첩된) 영역만큼은 제외하고 모자라는 만큼만 더 띄운다.
+        ex)위 박스의 마진이 30, 아래박스의 마진이 30이면
+        위아래 사이 간격은 30.
+        위 박스의 마진이 30, 아래박스의 마진이 60이면
+        위아래 사이 간격은 60이 된다.
+     -->
+     <div id="padding" style="text-align: center;">
+         패딩이 적용된 박스입니다.
+     </div>
+     
+     
+</body>
+</html>
