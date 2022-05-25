@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top: 50px;
+        }
+        .grad{
+            background: linear-gradient(to right bottom, blue, white);
+            background-repeat: no-repeat;
+            background-clip: border-box;
+        }
+        /* 
+            그라데이션을 만들어주는 색상인
+            - linear-gradient
+            어느방향으로 색상이 변하게 할지 방향을 지정하고
+            어떤 색상에서 어떤 색상으로 그라데이션 효과를 줄지
+            색상을 지정해준다.
+            to 뒤에 그라데이션이 진행되는 방향(목적지 방향)을 지정하면
+            자동으로 해당 방향의 반대방향에서부터 그라데이션 시작되어
+            지정한 진행방향(목적지)으로 그라데이션이 진행된다.
+        */
+        .gradRad{
+            background: linear-gradient(60deg, red, white);
+        }
+        .gradRad2{
+            background: linear-gradient(90deg, red, white);            
+        }
+        /* 
+            그라데이션의 방향을 정해진 방향(top, bottom, left, right)이 아닌
+            임의의 방향으로 각도를 지정해서 진행시키는 것도 가능하다.
+        */
+        .gradRad3{
+            border-radius: 500px;
+            box-shadow: #ccc 5px 5px 5px;
+            background:linear-gradient(0deg, white, yellow 20%, red 100%)
+        }
+        /* 
+            색상 중지점
+            그라데이션 효과가 나타나는 위치를 임의로 정해줄 수 있다.
+            색상 뒤에 백분율을 적으면
+            해당 지점에서 색상변화가 완전히 끝나고
+            그 지점 이후에는 모두 해당 색상이 된다.
+
+            그라데이션 효과를 줄 색상은 2개 이상 사용 가능하고
+            각 색상마다 중지점 비율을 주는 것도 가능하다.
+
+            각 색상에게 주는 중지점의 비율 수치가 
+            인접한 색상끼리 가깝다면
+            해당 비율 사이의 범위 내에서만 그라데이션 효과가 발생한다.
+            비율이 아예 동일하다면 그라데이션 없이
+            정확한 경계선을 가지고 색상이 칠해진다.
+        */
+        .rainbowgradRad4{
+            background:linear-gradient(to top, red 10%, orange 15%,yellow 40%, green 40%, blue 60%,navy 70%, purple 90%);
+       
+        /* 
+            무지개색 그라데이션을 만들어보자.
+            빨10
+            주15
+            노40
+            초40
+            파60
+            남70
+            보90
+            방향은 아래에서 위로
+        */
+       }
+       .radGrad1{
+           background:radial-gradient(circle ,red, black 70%);
+           border-radius: 500px;
+        /* 
+            원형 그라데이션
+            선형과 마찬가지로 색상을 부여하는 것 같지만
+            방향 대신에 그라데이션의 모양을 지정한다.
+            circle을 지정하면 요소의 크기와 상관없이
+            온전한 원 형태로 된 그라데이션을 구성하기 때문에
+            요소의 크기가 정사각형이 아니면 그라데이션 일부가 잘려보인다.
+            지정값이 없으면 요소의 크기에 맞춰서
+            그라데이션을 구성한다.
+            요소의 크기와 상관없이 온전한 그라데이션을 보여준다.
+        */           
+       }
+       .radGrad2{
+           background:radial-gradient(circle closest-side at 20% 20% ,red, black );
+           width: 300px;
+           height: 300px;                        
+       }
+       .radGrad3{
+           background:radial-gradient(circle closest-corner at 20% 20% ,red, black );
+           width: 300px;
+           height: 300px;                        
+       }
+       .radGrad4{
+           background:radial-gradient(circle farthest-side at 20% 20% ,red, black );
+           width: 300px;
+           height: 300px;                        
+       }
+       .radGrad5{
+           background:radial-gradient(circle farthest-corner at 20% 20% ,red, black );
+           width: 300px;
+           height: 300px;                        
+       }
+       /* 
+            그라데이션의 크기는
+            그라데이션의 끝나는 위치를 어디로 둘 것인지를 기준으로
+            결정이 된다.
+            closest(가장 가까운) <---> farthest(가장 먼)
+            side(면) <---> corner(모서리)
+       */
+       .radGradPos{
+           background:radial-gradient(circle at 20% 20%, red, black );
+       }
+       /* 
+            그라이데션의 시작(중점)위치는
+            크기 귀에 at 가로 세로
+            를 통해 지정할수 있다.
+
+            원형그라데이션의 전체 문법
+            radial-gradient(모양 크기 at 위치, 색깔, 색깔, ...);
+
+            원형그라데이션 역시 선형그라데이션과 마찬가지로
+            색상 뒤에 중지점을 지정해주면 그라데이션의
+            색상변화 위치를 임의로 조절할 수 있다.
+       */
+       .radGradP{
+           background:radial-gradient(circle at 20% 20%, white , pink 50%);
+           box-shadow: #ccc 10px 10px 5px;
+           border-radius: 250px;
+        }
+
+       .patternedGrad{
+           background:repeating-linear-gradient(to bottom, yellow, red 10px, yellow 20px);
+           width: 300px;
+           height: 250px;
+        }
+        .patternedGrad2{
+           background:repeating-radial-gradient(circle, white, grey 10px, white 20px);
+           width: 300px;
+           height: 250px;
+        }
+        .patternedGrad3{           
+           background:repeating-linear-gradient(yellow ,yellow 20px, red 20px, red 40px);
+           width: 300px;
+           height: 250px;
+        }
+        .patternedGrad4{
+           background:repeating-radial-gradient(circle,white, white 50px, grey 50px, grey 100px);
+           width: 300px;
+           height: 250px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 라인 그라데이션 -->
+    <div class="grad" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="gradRad" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="gradRad2" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="gradRad3" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="rainbowgradRad4" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        무지개 그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <!-- 원형 그라데이션 -->
+    <div class="radGrad1" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGrad2" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGrad3" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGrad4" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGrad5" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGradPos" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        그라데이션이 적용된 배경색상입니다.
+    </div>
+
+    <div class="radGradP" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        원형에 그라데이션이 적용된 배경색상입니다.
+    </div>
+    
+    <!-- 패턴 그라데이션 -->
+    <div class="patternedGrad" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        패턴 그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="patternedGrad2" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: white;">
+        패턴 그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="patternedGrad3" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: black;">
+        패턴 그라데이션이 적용된 배경색상입니다.
+    </div>
+    <div class="patternedGrad4" style="width: 500px; height: 500px; text-align: center; line-height: 500px; color: red;">
+        패턴 그라데이션이 적용된 배경색상입니다.
+    </div>
+    
+</body>
+</html>
