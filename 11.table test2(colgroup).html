@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 구성</title>
+    <style>
+        table, th, td {
+          border:1px solid #cccccc;
+          border-collapse: collapse;
+        }
+        th, td { padding:10px 20px; }
+      </style>
+</head>
+<body>
+    <table>
+        
+        <caption>표 합치기</caption>
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">5kg</td>
+                <td rowspan="2">18~26과</td>
+                <td>52,000원</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>47,000원</td>
+            </tr>
+            <tr>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">문의전화</td>
+                <td colspan="2">010-0000-0000</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <table>
+<br>
+<br>
+<!-- 열을 묶어서 관리하는 col, colgroup 태그 -->
+        <caption>colgroup</caption>
+        <colgroup>
+            <col style="background-color: aqua;">
+            <col style="width: 80px;">
+            <col style="width: 110px;">
+            <col style="width: 120px;">
+        </colgroup>
+        <!-- 
+            colGroup: 각 열 단위로 묶어서 관리하거나 속성을 적용시킬 수 있도록 해주는 태그
+            col: 각 열을 의미함.
+                해당 열에 아무런 적용을 시키지 않더라도
+                col을 작성해야한다.
+         -->
+        <thead>
+            <tr>
+                <th>용도</th>
+                <th>중량</th>
+                <th>개수</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">선물용</td>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>35,000원</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">5kg</td>
+                <td rowspan="2">18~26과</td>
+                <td>52,000원</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">가정용</td>
+                <td>47,000원</td>
+            </tr>
+            <tr>
+                <td>3kg</td>
+                <td>11~16과</td>
+                <td>30,000원</td>
+            </tr>            
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="1">문의전화</td>
+                <td colspan="3">010-0000-0000</td>
+            </tr>
+        </tfoot>
+    </table>
+    
+</body>
+</html>
