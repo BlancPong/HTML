@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 구성</title>
+    <style>
+        table, th, td {
+          border:1px solid #cccccc;
+          border-collapse: collapse;
+        }
+        th, td { padding:10px 20px; }
+      </style>
+</head>
+<body>
+    <table>
+        <caption>표 합치기</caption>
+        <thead>
+            <tr>
+                <td colspan="5">1</td>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="4">6</td>
+                <td colspan="4">7</td>
+            </tr>
+
+            <tr>
+                <td>12</td>
+                <td rowspan="2">13</td>
+                <td>14</td>
+                <td rowspan="3">15</td>
+            </tr>
+
+            <tr>
+                <td>17</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td colspan="2">22</td>
+                <td>24</td>
+            </tr>            
+        </tbody>       
+    </table>
+    
+</body>
+</html>
