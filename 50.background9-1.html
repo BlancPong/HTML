@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #clip-border{
+        background-clip: border-box;
+        background-color: red;
+        border: 3px dotted white;
+        padding: 20px;
+    }
+    #clip-padding{
+        background-clip: padding-box;
+        background-color: blue;
+        border: 3px dotted white;
+        padding: 20px;
+    }
+    #clip-content{
+        background-clip: content-box;
+        background-color: yellow;
+        border: 3px dotted white;
+        padding: 20px;
+    }    
+    /* 
+        클립(클리핑)
+        이미지의 일부분을 잘라내서 화면에 보여주는
+        기능을 말하는 용어
+        background-clip : 배경이 영역 내에서 
+        어디까지 적용되게 할 것인지 그 범위를 나타내는 스타일
+        각각 border, adding, content 영역으로 나뉘고
+        배경이 테두리, 패딩, 컨텐츠 영역까지 각각
+        적용되도록 만들어 준다.
+    */
+    #imgBox{
+        background-image: url(../image/아라찌.jpg);
+        width: 1920px;
+        height: 1080px;
+        background-repeat: no-repeat;
+        background-position: 0% 0%;
+        border: 1px solid #ccc;
+    }
+    /* 
+        background-image
+        배경에 색상이 아닌 이미지를 적용시키는 방법
+        url을 통해 배경이미지 파일이 있는 경로나
+        혹은 웹페이지 주소를 입력하면 해당 이미지를
+        배경이미지로써 영역 내에 적용시킨다.
+        일반적인 이미지와 달리 배경그림은 해당 스타일이 적용된
+        요소에 종속되기 때문에 이미지만 따로 분리하는것이 불가능하다.
+        
+        기본적으로는 배경그림이 해당 요소의 영역 전체를
+        가득 채우도록 반복해서 그림을 뿌려주지만
+        background-repeat 속성을 통해서 반복여부를 제어 할수 있다.
+        
+        - repeat-x, repeat-y는 각각 x축, y축으로만 반복해서
+        배경을 표시하고
+        
+        - no-repeat은 반복하지 않고 이미지를 한번만 표시한다.
+        - repeat은 x, y축 양쪽으로 배경을 반복시키고
+        영역 전체를 가득 채울때까지 반복한다.
+        repeat이 background-repeat의 초기값이다.
+
+        배경그림이 시작되는 위치를 background-position을 통해 지정해줄수 있다.
+        영역의 크기를 전체를 기준으로 백분율(%)로 표현할 수 있고
+        직접적인 수치(px)를 정할수도 있고
+        각 모서리를 기준으로 잡을 수도 있다.(left, right, top, bottom)
+    */
+
+    ul{
+        list-style-type: none;
+        margin-left: -30px;
+        /* 
+            불렛(마커) 대신에 배경그림을 사용하기 때문에
+            리스트의 스타일을 제거
+            왼쪽에 배경이 들어갈 공간을 확보하기 위해 마진을 준다.
+        */
+    }
+    li{
+        background-image: url(../image/아라찌.jpg);
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 50px;
+        line-height: 50px;
+        background-size: 50px 50px;
+        /* 
+            배경그림을 리스트의 불렛처럼 사용하기 떄문에
+            반복은 없고, 왼쪽 가운데(상하 위치) 위치시키고
+            왼쪽패딩은 이미지의 가로 폭만큼
+            라인의 높이는 이미지의 세로 폭만큼
+            배경그림의 크기가 크거나, 작은 경우에는
+            배경그림의 크기를 직접 지정해준다.
+        */       
+    }
+    #bg-border{
+        background-origin: border-box;
+        border: 3px dotted white;
+        padding: 20px;
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        background-size: 1000px;
+        background-repeat: no-repeat;
+    }
+    #bg-padding{
+        background-origin: padding-box;
+        border: 3px dotted white;
+        padding: 20px;
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        background-size: 1000px;
+        background-repeat: no-repeat;
+    }
+    #bg-content{
+        background-origin: content-box;
+        border: 3px dotted white;
+        padding: 20px;
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        background-size: 1000px;
+        background-repeat: no-repeat;
+    }
+
+    /* 
+        background-origin
+        배경그림의 적용 범위를 테두리, 패딩, 컨텐츠 영역으로
+        제한하는 기능이다.
+        다만, repeat기능이 켜져있을 경우에는
+        origin이 적용된 이미지 하나의 위치를 기준으로
+        상하좌우로 이미지를 반복시키기 때문에
+        origin에서 준 적용범위가 의미가 없어진다.
+        따라서 origin 스타일을 사용할떄는 repeat을 꺼주도록 한다.
+    */
+
+    #fixedBd{
+        background-attachment: fixed;
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        /* background: fixed url(../image/아라찌-일러스트-레옹.jpg) repeat-y; */
+        /* 
+            border와 마찬가지로
+            background- 로 시작하는 모든 스타일 속성은
+            background 스타일을 통해 한번에 변경이 가능하다.
+        */
+    }
+    /* 
+        background-attachment
+        화면을 스크롤해서 위치를 이동할때
+        배경그림이 스크롤에 따라 움직이지 않고
+        화면에 고정된채로 있게 해주는 스타일
+        웹요소에 사용하던 position 스타일의 fixed와 동일.
+
+        화면 전체에 적용되는 배경이 아니라
+        일부 요소에 적용되는 배경에게 어태치먼트를 사용하면
+        마찬가지로 해당 요소가 화면에 노출됐을때
+        배경그림은 고전된 채로, 해당 요소 내에서만 보인다.
+        스크롤을 통해 해당 요소가 움직이더라도
+        배경그림은 요소를 따라 움직이지 않기 때문에
+        다소 어색하게 느껴질수 있다.
+    */
+
+    #bg_contain{
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        background-size: contain;
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        border: 1px solid #000;
+    }
+    #bg_cover{
+        background-image: url(../image/아라찌-일러스트-레옹.jpg);
+        background-size: cover;
+        width: 500px;
+        height: 500px;
+        background-repeat: no-repeat;
+        border: 1px solid #000;
+    }
+    /* 
+        background-size
+        배경이미지의 크기를 조절해주는 스타일로
+        - contain의 경우, 이미지가 영역 내에 온전하게
+        다 보일수 있도록 크기를 변경하고
+        - cover의 경우, 이미지가 영역 전체를 차지할 수 있도록
+        이미지의 크기를 변경한다.
+
+        contain은 이미지에 중점을 두고
+        cover은 영역에 중점을 준다.
+    */
+    
+    
+    </style>
+<body id="fixedBd">
+    <div id="clip-border">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>
+
+    <div id="clip-padding">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>
+
+    <div id="clip-content">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>
+
+    <div id="imgBox">
+
+    </div>
+
+    <h1>이지스퍼블리싱</h1>
+    <ul>
+        <li>회사소개</li>
+        <li>도서</li>
+        <li>자료실</li>
+        <li>동영상강의</li>
+    </ul>
+
+    <div id="bg-border">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>
+    <br>
+
+    <div id="bg-padding">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>
+    <br>
+
+    <div id="bg-content">
+        <h2>강아지 집</h2>
+        <p>
+            강아지가 편히 쉴 수 있는 포근한 집이 필요합니다.
+            강아지의 집은 강아지가 다 큰 후에도 계속 쓸 수 있는 집으로 구입하세요.
+            집을 구입하실 때는 박음질이 잘 되어 있는지,
+            세탁이 간편한 제품인지 꼭 확인하시고 고르시는 것이 좋습니다.
+        </p>
+    </div>    
+    
+    <div id="bg_contain"></div>
+    <br>
+    <div id="bg_cover"></div>
+</body>
+</html>
