@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        nav a:hover{
+            background-color: black;
+            color: white;
+        }
+        nav a:active{
+            background-color: red;
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;    
+            padding: 10px 20px; 
+                   
+        }
+        li{
+            float: left;
+            padding: 10px;
+            margin: auto;            
+        }
+        
+        #intro:target{
+            background: #006900;
+        }
+        #room:target{
+            background: #006900;
+        }
+        #reservation:target{
+            background: #006900;
+        }
+        #order:target{
+            background: #006900;
+        }
+        /* 
+            선택자 앞에 #이 붙었지만
+            뒤에 가상클래스로 target이 붙었기 떄문에
+            이는 id클래스에 앵커를 적용시킨 클래스
+
+            앵커가 적용된 스타일의 경우
+            해당 앵커가 동작했을때
+            앵커가 적용된 요소의 위치로 스크롤이 이동한다.
+
+            href에 앵커를 연결시킬때
+            별도의 다른 값 없이 #만 주면
+            해당 페이지의 맨 위로 스크롤된다.
+        */
+        div{
+            width: 640px;
+            height: 400px;
+        }
+        nav input:disabled{
+            background-color: grey;
+        }
+
+        nav input:enabled{
+            border: 1px solid red;
+        }
+        /* 
+            특정요소가 활성화/비활성화 됐을때
+            적용시켜주는 가상클래스
+        */
+
+        nav input:checked+label{
+            color: orange;
+        }
+        /* 
+            라디오버튼이나 체크박스가 체크되었을때(선택됐을때)
+            적용되는 가상클래스
+
+            checked 가상 클래스의 경우
+            input에서도 checkbox나 radiobutton처럼
+            버튼 단독으로 존재하는 요소들에게 적용되기 떄문에
+            해당 버튼들과 연결된 텍스트에게 스타일을 적용시키려면
+            위와 같이 인접 형제 선택자들 이용하는것이 필수적이 된다.
+        */
+
+        div :not(h1~p){
+           color: royalblue; 
+        }
+        /* 
+            not 가상선택자
+
+            하위선택자
+            형제선택자
+            not 가상선택자
+        */
+
+        div p:not([class="test"]){
+            border:1px dotted green;
+            display: inline-block;
+        }
+        /* 
+            속성, 속성값 선택자 역시
+            not으로 사용 가능하다.
+        */
+        /* 
+            적용범위 :not(조건){}
+        */
+
+        /* ------------- 구조 가상 클래스 -------------  */
+        footer :only-child{
+            background-color: red;
+        }
+        /* 
+            only-child 대상요소의 자식이 하나 뿐인데 적용
+        */
+        footer :nth-child(3){
+            background-color: lime;
+        }
+        /* 
+            자식중 특정 index(번호)를 가지는 자식에게 적용
+        */
+
+        footer :nth-child(2n+1){
+            font-style: italic;
+            border: dotted;
+            display: inline-block;
+        }
+        /* 
+            숫자 부분에 수식을 넣을 수도 있다.
+        */
+
+        p::first-letter{
+            font-weight: bolder;
+            text-decoration: underline;
+            /* 첫번째 글자에만 적용하는 스타일 */
+        }      
+        p::first-line{
+            text-decoration: line-through;
+            /* 첫번째 줄만만 적용하는 스타일 */
+        }        
+        /* 
+            요소 내에서 특정 위치에게 적용되는 스타일
+        */
+
+    li::before{
+        content:"신규등록";
+        font-size: 8px;
+        padding: 5px;
+        background-color: blue;
+        /* 요소앞에 붙이는 스타일 */
+    }
+    li::after{
+        content:"신규등록";
+        font-size: 8px;
+        padding: 5px;
+        background-color: red;
+        /* 요소뒤에 붙이는 스타일 */
+    }
+    /* 
+        특정요소의 앞/뒤에 스타일을 추가하는 경우
+    */
+    
+    </style>
+</head>
+<body>
+    <nav style="border: 1px solid #ccc; ; display: inline-block; clear: left;">
+        <ul style="list-style-type: none;">
+            <li><a href="#intro">이용 안내</a></li>
+            <li><a href="#room">객실 소개</a></li>
+            <li><a href="#reservation">예약 방법 및 요금</a></li>
+            <li style="padding-right: 60px;"><a href="#order">예약하기</a></li>
+        </ul>        
+        <hr>
+    </nav>
+    <div id="intro" style=" border: 1px solid #000;"></div>
+    <div id="room" style="border: 1px solid #000;"></div>
+    <div id="reservation" style=" border: 1px solid #000;"></div>
+    <div id="order" style=" border: 1px solid #000;"></div>
+    <hr>
+    <nav>
+        <input type="text" disabled>
+        <input type="button" enable value="활성화된 버튼">
+        
+        <input type="checkbox" id="chk1">
+        <label for="chk1">체크박스1</label>
+        <input type="checkbox" id="chk2">
+        <label for="chk2">체크박스2</label>
+    </nav>
+    
+    <div>
+        <h1>h1입니다.</h1>
+        <p class="test">형제입니다.</p>
+        <p class="test">형제2입니다.</p>
+        <h2>형제 h2입니다.</h2>
+        <p class="test">형제3입니다.</p>
+        <h3 class="test">형제 h3입니다.</h3>
+        <p>형제입니다.</p>
+        <h4>형제 h4입니다.</h4>
+    </div>
+
+    <footer>        
+        <p>abcdefg</p>
+    </footer>
+<hr>
+    <footer>        
+        <p>abcdefg<br>두번째 줄입니다.</p>
+        <p>abcdefg</p>
+        <p>abcdefg</p>
+        <p>abcdefg</p>
+        <p>abcdefg</p>
+    </footer>
+</body>
+</html>
