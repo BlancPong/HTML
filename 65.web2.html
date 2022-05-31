@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../html/65.web.css" media="only screen">
+    <!-- 
+        외부 css파일을 불러올떄 미디어쿼리처럼
+        조건을 주고 읽어오는 것이 가능하고(media 속성)
+        각 미디어 쿼리에 맞는 css파일을 다수 준비해서
+        상황에 따라 다른 css를 불러오게 할 수도 있다.
+     -->
+     <style>
+         @import url(65.web.css) only screen and (min-width:300px);
+         /* 
+            link가 아닌 import를 이용해서 부르는 것도 가능하다.
+         */
+     </style>
+</head>
+<body>
+    <h1>글자의 크기가 뷰포트의 너비를 기준으로 한 수치입니다.</h1>
+    <div id="container">
+        미디어쿼리를 적용한 div 컨테이너입니다.
+    </div>
+</body>
+</html>
