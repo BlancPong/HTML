@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: #ddd;
+            border: 1px solid #000;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .container{
+            display: flex;
+        }
+        #option1{ flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; align-content: space-between;}  /* 가로 */
+               
+        #option2{ flex-direction: row-reverse; flex-wrap: wrap-reverse; justify-content: space-around; }
+
+        #option3{ flex-flow: column wrap; }  /* 세로 */
+
+        #option4{ flex-direction: column-reverse; flex-wrap: wrap; }
+        /* 
+            그리드 레이아웃
+            flex 레이아웃
+            요소들을 공간 내에 일괄적으로 배치하는 방식
+            (요소간의 크기가 명확하게 정해지지 않는다.)
+            그리드 레이아웃
+            곡간을 몇개의 격자(칸)으로 나눈 뒤
+            각 칸에 요소들을 배치하는 방식
+            (요소가 들어갈 칸의 크기가 정해져 있다.)
+
+            flex-direction: 요소들을 어느 방향으로 배치할지
+            (row좌->우, row-r 우->좌
+            column상->하, column-r하->상)
+            flex-wrap: 요소들을 배치하기에 공간이 부족할때
+            요소들을 어떻게 처리할지
+            nowrap: 요소들을 그대로 배치한다*요소가 외곡됨)
+            wrap: 요소들을 다음 줄에 배치한다.
+            wrap-r: 요소들을 이전 줄에 배치한다.
+
+            justify-content: 방향이 정해진 요소들을
+            어떤 기준으로 배치할 것인지를 나타낸다.
+            flex-start: 해당 방향의 시작위치부터 배치
+            flex-end: 해당 방향의 끝위치에 마지막 요소가 닿도록 배치
+            space-between: 공간 내에 요소 사이 간격을 동일하게 균일 배치
+            space-around: 요소와 양 경계선 사이의 간격을 동일하게 배치
+        */
+    </style>
+</head>
+<body>
+    <div class="container" id="option1">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>        
+    </div>
+    <hr>
+    <div class="container" id="option2">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>        
+    </div>
+    <hr>
+    <div class="container" id="option3">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>        
+    </div>
+    <hr>
+    <div class="container" id="option4">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>        
+    </div>
+    <hr>
+    
+</body>
+</html>
