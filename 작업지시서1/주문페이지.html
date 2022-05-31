@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문페이지</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap');
+        *{
+            font-family: 'Kirang Haerang', cursive;
+            font-size: 20px;
+        }
+        h1{
+            font-size: 40px;
+        }
+        i{
+            font-size: 5px;
+
+        }
+        
+        table, th, td {
+          border:1px solid #cccccc;
+          border-collapse: collapse;
+        }
+        th, td { padding:10px 20px; }
+
+        header{
+            background-color: darkslategray;
+            color: white;
+        }
+        section{
+            background-color: olive;
+            color: white;
+            width: auto;
+            height: 900px;
+        }
+        footer{
+            background-color: cadetblue;
+            color: white;
+            text-align: right;
+        }
+        header h1{
+            text-align: center;
+        }
+        nav ul{
+            list-style: none;
+            text-align: center;
+            padding-bottom:  20px;
+        }
+        nav ul li{
+            display: inline;
+            margin: 30px;              
+        }
+        nav ul a:active{
+            border-radius: 20px;
+            padding: 10px;
+            color: white;
+            background-color: tomato;            
+        }
+        nav ul li:hover{
+            border-radius: 20px;
+            padding: 10px;
+            color: black;
+            background-color: tomato;
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease-in;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        fieldset, table{
+            text-align: center;
+            margin: auto;
+        }
+        ol, li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+
+    <header>
+        <a href="../작업지시서1/레드향을소개하는페이지.html"><h1>레드향 주문하기</h1></a>
+        <nav>
+            <ul>
+                <a href="https://itlionaire.tistory.com/227" target="blank"><li>효능페이지</li></a>
+                <a href="../작업지시서1/주문페이지.html"><li>주문페이지</li></a>
+                <a href="../작업지시서1/회원가입 페이지.html"><li>회원가입</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+            
+            <fieldset>
+                
+                
+                <legend><h2>상품 구성</h2></legend>
+                <table>
+                    <caption>선물용과 가정용 상품 구성</caption>
+                    <tr>
+                        <th>용도</th>
+                        <th>중량</th>
+                        <th>개수</th>
+                        <th>가격</th>
+                    </tr>
+                    <tr>
+                        <td>선물용</td>
+                        <td>3kg</td>
+                        <td>11~16과</td>
+                        <td>35,000</td>
+                    </tr>
+                    <tr>
+                        <td>선물용</td>
+                        <td>5kg</td>
+                        <td>18~26과</td>
+                        <td>52,000</td>
+                    </tr>
+                    <tr>
+                        <td>가정용</td>
+                        <td>3kg</td>
+                        <td>11~16과</td>
+                        <td>35,000</td>
+                    </tr>
+                    <tr>
+                        <td>가정용</td>
+                        <td>5kg</td>
+                        <td>18~26과</td>
+                        <td>47,000</td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend><h2>상품 선택</h2></legend>
+                <h4> 주문할 상품을 선택해 주세요</h4>
+                
+                <ol>
+                    <li>
+                        <input type="checkbox" name="order">선물용 3kg <input type="number" min="1" max="5" maxlength="1" value="1" >개<i>(최대 5개)</i>
+                    </li>
+                    <br>
+                    <li>                  
+                        <input type="checkbox" name="order">선물용 5kg <input type="number" min="1" max="3" maxlength="1" value="1" >개<i>(최대 3개)</i>
+                    </li>
+                    <br>
+                    <li>
+                        <input type="checkbox" name="order">가정용 3kg <input type="number" min="1" max="5" maxlength="1" value="1" >개<i>(최대 5개)</i>
+                    </li>
+                    <br>                    
+                    <li>
+                        <input type="checkbox" name="order">가정용 5kg <input type="number" min="1" max="3" maxlength="1" value="1" >개<i>(최대 3개)</i>
+                   </li>
+                    <br>                    
+                </ol>
+
+                <h4>포장 선택</h4>
+                <input type="radio" name="pt" value="yespt">선물 포장
+                <input type="radio" name="pt" value="nopt" checked>선물 포장 안함
+                <br>
+                <i>선물용 상품은 기본으로 선물 포장되어 배송됩니다.</i>
+            </fieldset>              
+        
+    </section>
+    <footer>
+        <div>이름: 남정수</div> 
+        <div>연락처: 010-3785-6377</div>
+        <div>이메일: bu3820@naver.com</div>
+    </footer>
+    </form>
+</body>
+</html>
