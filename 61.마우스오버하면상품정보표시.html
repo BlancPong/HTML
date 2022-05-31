@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS3 애니메이션</title>
+  <link rel="stylesheet" href="../CSS/product.css">
+  <style>
+      #container {
+        width:1000px;
+        margin:20px auto;
+        }
+        h1 {
+        text-align:center;
+        }
+        .prod-list {
+        list-style:none;
+        padding:0;
+        }
+        .prod-list li {
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden; /* 영역을 넘었을때 숨겨주는 속성 */
+        position: relative;
+        }
+        .prod-list img {
+        margin:0;
+        padding:0;
+        float:left;
+        z-index:5;
+        } 
+        .prod-list .caption{
+            position: absolute; /* 내가 준 위치에 무조건 보내는 속성 */
+            top: 200px;
+            width: 300px;
+            height: 200px;
+            padding-top: 20px;
+            background-color: rgba(0,0,0,0.6);
+            text-align: center;
+            color: white;
+            opacity: 0; /*투명도. 배경색에 사용하던 알파값과 동일하고
+            차이점이 있다면 해당 속성은 요소 전체에 영향을 끼친다.
+            알파값처럼 0~1까지의 범위를 가진다.*/
+            transition: all 0.6s ease-in-out;
+            z-index: 10; 
+            /* 평면상에서의 순서. 2d 평면에서 여러 요소들이
+            겹쳐있는 경우, 어떤 요소가 더 앞에 나와서 다른 요소에게
+            가려지지 않게 할  것인지, 말하자면 앞으로 나와있는 순서를
+            설정해주는 속성값이 z-index이다.
+            수치가 클수록 다른 요소보다 앞으로 나온다.
+            음수, 0, 양수 모두 사용 가능하고 정수만 사용할수 있다. */
+        }
+        .prod-list li:hover .caption{
+            opacity: 1;
+            transform: translateY(-200px);
+        }
+        /* 
+            마우스가 올라가는 대상은 아래로 내려가서 숨겨진
+            caption이 아니라, 현재 화면에 보이는 li이기 때문에
+            호버는 li에게 적용시키고
+            실제 스타일 내용이 적용되는 대상은 caption이기 떄문에 
+            뒤에 caption을 적어준다.
+        */
+        
+
+  </style>
+</head>
+<body>
+	<div id="container">
+    <h1>신상품 목록</h1>
+		<ul class="prod-list">
+      <li>
+        <img src="../image/prod1.jpg">
+        <div class="caption">
+          <h2>상품 1</h2>
+          <p>상품 1 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+      <li>
+        <img src="../image/prod2.jpg">
+        <div class="caption">
+          <h2>상품 2</h2>
+          <p>상품 2 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+      <li>
+        <img src="../image/prod3.jpg">
+        <div class="caption">
+          <h2>상품 3</h2>
+          <p>상품 3 설명 텍스트</p>
+          <p>가격 : 12,345원</p>
+        </div>
+      </li>
+    </ul>
+	</div>
+</body>
+</html>
